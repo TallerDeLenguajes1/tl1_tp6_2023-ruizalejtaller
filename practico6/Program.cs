@@ -11,7 +11,7 @@ b=a;
 
 Console.WriteLine("Valor de a: "+a);
 Console.WriteLine("Valor de b: "+b);
-*/
+
 
 String str;
 float num;
@@ -30,3 +30,6 @@ if (anda)
     Console.WriteLine("El inverso de: "+num+" es 1/"+num);
     } else Console.WriteLine(num+ " es menor que cero");
 }
+
+*/
+
