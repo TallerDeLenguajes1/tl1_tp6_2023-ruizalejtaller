@@ -13,7 +13,7 @@ Console.WriteLine("Valor de a: "+a);
 Console.WriteLine("Valor de b: "+b);
 */
 
-String str = "";
+String str;
 float num;
 
 Console.WriteLine("Escriba un número: ");
