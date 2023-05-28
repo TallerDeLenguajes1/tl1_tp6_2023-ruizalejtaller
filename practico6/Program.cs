@@ -11,11 +11,6 @@ b=a;
 
 Console.WriteLine("Valor de a: "+a);
 Console.WriteLine("Valor de b: "+b);
-<<<<<<< HEAD
-
-=======
->>>>>>> CalculadoraV2
-
 
 String str1;
 int num, inv=0, aux;
@@ -41,14 +36,8 @@ if (ok)
 
         Console.WriteLine("El inverso de: "+num+" es " + inv);
     } else Console.WriteLine(num+ " es menor que cero");
-<<<<<<< HEAD
-}
-
-*/
-=======
 } else Console.WriteLine("No ingresó un número entero.");
 
->>>>>>> CalculadoraV2
 
 String str;
 float num_a, num_b;
@@ -63,8 +52,6 @@ while (flag)
     Console.WriteLine("2. Restar");
     Console.WriteLine("3. Multiplicar");
     Console.WriteLine("4. Dividir");
-<<<<<<< HEAD
-=======
     Console.WriteLine("5. Valor absoluto");
     Console.WriteLine("6. Cuadrado");
     Console.WriteLine("7. Raíz cuadrada");
@@ -73,7 +60,6 @@ while (flag)
     Console.WriteLine("10. Parte entera");
     Console.WriteLine("11. Max entre 2 numeros");
     Console.WriteLine("12. Min entre 2 numeros");
->>>>>>> CalculadoraV2
 
     str = Console.ReadLine();
 
@@ -81,11 +67,7 @@ while (flag)
 
     if (anda)
     {
-<<<<<<< HEAD
-        if (op>0 && op <=4)
-=======
         if (op>0 && op <=4 || op == 11 || op == 12)
->>>>>>> CalculadoraV2
         {
             Console.WriteLine("Ingrese el numero a: ");
             str = Console.ReadLine();
@@ -109,21 +91,16 @@ while (flag)
 
                     case 4: divide(num_a, num_b);
                     break;
-<<<<<<< HEAD
-=======
 
                     case 11: max(num_a, num_b);
                     break;
 
                     case 12: min(num_a, num_b);
                     break;
->>>>>>> CalculadoraV2
             
                 }
             }
         }
-<<<<<<< HEAD
-=======
 
         if (op>=5 && op <=10)
         {
@@ -157,7 +134,6 @@ while (flag)
             }
         }
 
->>>>>>> CalculadoraV2
     }
     Console.WriteLine("\nDesea realizar otro calculo? (n) para no");
 
@@ -191,8 +167,6 @@ void divide(float a, float b)
     Console.WriteLine("\n"+a+" divido en "+b+" es = "+(a/b));
 }
 
-<<<<<<< HEAD
-=======
 void vabs(float a)
 {
     Console.WriteLine("\nEl valor absoluto de "+a+" es +"+Math.Abs(a));
@@ -233,4 +207,3 @@ void min(float a, float b)
     Console.WriteLine("\nEl minimo entre "+a+" y "+b+" es "+Math.Min(a,b));
 }
 
->>>>>>> CalculadoraV2
