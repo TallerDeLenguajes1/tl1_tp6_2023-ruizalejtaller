@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-/*
+
 Console.WriteLine("Hello, World!");
 
 int a;
@@ -11,27 +11,44 @@ b=a;
 
 Console.WriteLine("Valor de a: "+a);
 Console.WriteLine("Valor de b: "+b);
+<<<<<<< HEAD
+
+=======
+>>>>>>> CalculadoraV2
 
 
-String str;
-float num;
+String str1;
+int num, inv=0, aux;
 
-Console.WriteLine("Escriba un número: ");
+Console.WriteLine("Escriba un número entero: ");
 
-str = Console.ReadLine();
+str1 = Console.ReadLine();
 
-bool anda = float.TryParse(str, out num);
+bool ok = int.TryParse(str1, out num);
 
 
-if (anda)
+if (ok)
 {
     if (num>0)
     {
-    Console.WriteLine("El inverso de: "+num+" es 1/"+num);
+        aux = num;
+
+        while (aux>0)
+        {
+            inv = inv*10 + aux%10;
+            aux /= 10;
+        }
+
+        Console.WriteLine("El inverso de: "+num+" es " + inv);
     } else Console.WriteLine(num+ " es menor que cero");
+<<<<<<< HEAD
 }
 
 */
+=======
+} else Console.WriteLine("No ingresó un número entero.");
+
+>>>>>>> CalculadoraV2
 
 String str;
 float num_a, num_b;
@@ -46,6 +63,17 @@ while (flag)
     Console.WriteLine("2. Restar");
     Console.WriteLine("3. Multiplicar");
     Console.WriteLine("4. Dividir");
+<<<<<<< HEAD
+=======
+    Console.WriteLine("5. Valor absoluto");
+    Console.WriteLine("6. Cuadrado");
+    Console.WriteLine("7. Raíz cuadrada");
+    Console.WriteLine("8. Seno");
+    Console.WriteLine("9. Coseno");
+    Console.WriteLine("10. Parte entera");
+    Console.WriteLine("11. Max entre 2 numeros");
+    Console.WriteLine("12. Min entre 2 numeros");
+>>>>>>> CalculadoraV2
 
     str = Console.ReadLine();
 
@@ -53,7 +81,11 @@ while (flag)
 
     if (anda)
     {
+<<<<<<< HEAD
         if (op>0 && op <=4)
+=======
+        if (op>0 && op <=4 || op == 11 || op == 12)
+>>>>>>> CalculadoraV2
         {
             Console.WriteLine("Ingrese el numero a: ");
             str = Console.ReadLine();
@@ -77,10 +109,55 @@ while (flag)
 
                     case 4: divide(num_a, num_b);
                     break;
+<<<<<<< HEAD
+=======
+
+                    case 11: max(num_a, num_b);
+                    break;
+
+                    case 12: min(num_a, num_b);
+                    break;
+>>>>>>> CalculadoraV2
             
                 }
             }
         }
+<<<<<<< HEAD
+=======
+
+        if (op>=5 && op <=10)
+        {
+            Console.WriteLine("Ingrese el numero: ");
+            str = Console.ReadLine();
+            bool anda1 = float.TryParse(str, out num_a);
+        
+            if (anda1)
+            {
+                switch(op)
+                {
+                    case 5: vabs(num_a);
+                    break;
+
+                    case 6: cuadrado(num_a);
+                    break;
+
+                    case 7: raiz(num_a);
+                    break;
+
+                    case 8: seno(num_a);
+                    break;
+
+                    case 9: coseno(num_a);
+                    break;
+
+                    case 10: entera(num_a);
+                    break;
+
+                }
+            }
+        }
+
+>>>>>>> CalculadoraV2
     }
     Console.WriteLine("\nDesea realizar otro calculo? (n) para no");
 
@@ -114,3 +191,46 @@ void divide(float a, float b)
     Console.WriteLine("\n"+a+" divido en "+b+" es = "+(a/b));
 }
 
+<<<<<<< HEAD
+=======
+void vabs(float a)
+{
+    Console.WriteLine("\nEl valor absoluto de "+a+" es +"+Math.Abs(a));
+}
+
+void cuadrado(float a)
+{
+    Console.WriteLine("\nEl cuadrado de "+a+" es +"+(a*a));
+}
+
+void raiz(float a)
+{
+    Console.WriteLine("\nLa raíz cuadrada de "+a+" es +"+Math.Sqrt(a));
+}
+
+void seno(float a)
+{
+    Console.WriteLine("\nEl seno de "+a+" es +"+Math.Sin(a));
+}
+
+void coseno(float a)
+{
+    Console.WriteLine("\nEl coseno de "+a+" es +"+Math.Cos(a));
+}
+
+void entera(float a)
+{
+    Console.WriteLine("\nLa parte entera de "+a+" es +"+Math.Truncate(a));
+}
+
+void max(float a, float b)
+{
+    Console.WriteLine("\nEl maximo entre "+a+" y "+b+" es "+Math.Max(a,b));
+}
+
+void min(float a, float b)
+{
+    Console.WriteLine("\nEl minimo entre "+a+" y "+b+" es "+Math.Min(a,b));
+}
+
+>>>>>>> CalculadoraV2
