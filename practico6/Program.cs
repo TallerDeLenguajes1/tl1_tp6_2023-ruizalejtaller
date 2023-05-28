@@ -12,7 +12,7 @@ b=a;
 Console.WriteLine("Valor de a: "+a);
 Console.WriteLine("Valor de b: "+b);
 
-String str1;
+String str1, str2;
 int num, inv=0, aux;
 
 Console.WriteLine("Escriba un número entero: ");
@@ -39,8 +39,9 @@ if (ok)
 } else Console.WriteLine("No ingresó un número entero.");
 
 
-String str;
+String str, rcad ="";
 float num_a, num_b;
+double resul = 0;
 int op;
 
 bool flag = true;
@@ -80,25 +81,32 @@ while (flag)
             {
                 switch (op)
                 {
-                    case 1: suma(num_a, num_b);
-                    break;
+                    case 1: resul = suma(num_a, num_b);
+                        rcad = $"La suma de {num_a} y {num_b} es igual a: ";
+                        break;
 
-                    case 2: resta(num_a, num_b);
-                    break;
+                    case 2: resul = resta(num_a, num_b);
+                        rcad = $"La diferencia entre {num_a} y {num_b} es igual a: ";
+                        break;
 
-                    case 3: multiplica(num_a, num_b);
-                    break;
+                    case 3: resul = multiplica(num_a, num_b);
+                        rcad = $"El producto entre {num_a} y {num_b} es igual a: ";
+                        break;
 
-                    case 4: divide(num_a, num_b);
-                    break;
+                    case 4: resul = divide(num_a, num_b);
+                        rcad = $"La división de {num_a} entre {num_b} es igual a: ";
+                        break;
 
-                    case 11: max(num_a, num_b);
-                    break;
+                    case 11: resul = max(num_a, num_b);
+                        rcad = $"El maximo entre {num_a} y {num_b} es: ";
+                        break;
 
-                    case 12: min(num_a, num_b);
+                    case 12: resul = min(num_a, num_b);
+                        rcad = $"El minimo entre {num_a} y {num_b} es: ";
                     break;
             
                 }
+                Console.WriteLine($"{rcad}{resul}");
             }
         }
 
@@ -112,25 +120,26 @@ while (flag)
             {
                 switch(op)
                 {
-                    case 5: vabs(num_a);
+                    case 5: resul = vabs(num_a);
                     break;
 
-                    case 6: cuadrado(num_a);
+                    case 6: resul = cuadrado(num_a);
                     break;
 
-                    case 7: raiz(num_a);
+                    case 7: resul = raiz(num_a);
                     break;
 
-                    case 8: seno(num_a);
+                    case 8: resul = seno(num_a);
                     break;
 
-                    case 9: coseno(num_a);
+                    case 9: resul = coseno(num_a);
                     break;
 
-                    case 10: entera(num_a);
+                    case 10: resul = entera(num_a);
                     break;
 
                 }
+                Console.WriteLine($"Resultado: {resul}");
             }
         }
 
@@ -141,69 +150,171 @@ while (flag)
 
     if (str == "n")
     {
-        Console.WriteLine("Saliendo..");
         flag = false;
     }
 }
 
-void suma(float a, float b)
-{
+Console.WriteLine("Ingrese la primer cadena de texto: ");
+str1 = Console.ReadLine();
 
-    Console.WriteLine("\nLa suma de "+a+" + "+b+" es = "+(a+b));
+Console.WriteLine("La longitud de la primer cadena es {0}\n", str1.Length);
+
+Console.WriteLine("Ingrese la segunda cadena de texto: ");
+str2 = Console.ReadLine();
+
+str = $"{str1} {str2}";
+
+Console.WriteLine("\nConcatenadas:");
+Console.WriteLine(str);
+
+if (str.Length > 2) {
+    Console.WriteLine("\nUna subcadena: ");
+    Console.WriteLine($"{str.Substring(0,2)}");
 }
 
-void resta(float a, float b)
+foreach (char c in str)
 {
-    Console.WriteLine("\n"+a+" - "+b+" es = "+(a-b));
+    Console.WriteLine($"{c}");
 }
 
-void multiplica(float a, float b)
+Console.WriteLine("Ingrese subcadena a buscar: ");
+str1 = Console.ReadLine();
+
+if(str.Contains(str1))
 {
-    Console.WriteLine("\n"+a+" multiplicado por "+b+" es = "+(a*b));
+    Console.WriteLine("La subcadena es parte de la cadena");
+} else Console.WriteLine("La subcadena no pertenece a la cadena");
+
+Console.WriteLine("\nLa cadena en mayusculas:");
+Console.WriteLine(str.ToUpper());
+
+Console.WriteLine("\nLa cadena en minisculas: ");
+Console.WriteLine(str.ToLower());
+
+Console.WriteLine("\nIngrese una cadena de caracteres separadas por .");
+str = Console.ReadLine();
+
+string[] separ = str.Split('.');
+
+foreach (var sep in separ)
+{
+    Console.WriteLine($"{sep}");
 }
 
-void divide(float a, float b)
+Console.WriteLine("\nIngrese una ecuacion simple (+, -, * o /): ");
+str = Console.ReadLine();
+
+if (str.Contains("+"))
 {
-    Console.WriteLine("\n"+a+" divido en "+b+" es = "+(a/b));
+    separ = str.Split('+');
+
+    bool ok1 = float.TryParse(separ[0], out num_a);
+    bool ok2 = float.TryParse(separ[1], out num_b);
+
+    if (ok1 && ok2)
+    {
+        Console.WriteLine($"La suma de {num_a} y {num_b} es igual a: {suma(num_a, num_b)}");
+    }
 }
 
-void vabs(float a)
+if (str.Contains("-"))
 {
-    Console.WriteLine("\nEl valor absoluto de "+a+" es +"+Math.Abs(a));
+    separ = str.Split('-');
+
+    bool ok1 = float.TryParse(separ[0], out num_a);
+    bool ok2 = float.TryParse(separ[1], out num_b);
+
+    if (ok1 && ok2)
+    {
+        Console.WriteLine($"La diferencia entre {num_a} y {num_b} es igual a: {resta(num_a, num_b)}");
+    }
 }
 
-void cuadrado(float a)
+if (str.Contains("*"))
 {
-    Console.WriteLine("\nEl cuadrado de "+a+" es +"+(a*a));
+    separ = str.Split('*');
+
+    bool ok1 = float.TryParse(separ[0], out num_a);
+    bool ok2 = float.TryParse(separ[1], out num_b);
+
+    if (ok1 && ok2)
+    {
+        Console.WriteLine($"El producto de {num_a} y {num_b} es igual a: {multiplica(num_a, num_b)}");
+    }
 }
 
-void raiz(float a)
+if (str.Contains("/"))
 {
-    Console.WriteLine("\nLa raíz cuadrada de "+a+" es +"+Math.Sqrt(a));
+    separ = str.Split('/');
+
+    bool ok1 = float.TryParse(separ[0], out num_a);
+    bool ok2 = float.TryParse(separ[1], out num_b);
+
+    if (ok1 && ok2)
+    {
+        Console.WriteLine($"La division de {num_a} entre {num_b} es igual a: {divide(num_a, num_b)}");
+    }
 }
 
-void seno(float a)
+
+double suma(float a, float b)
 {
-    Console.WriteLine("\nEl seno de "+a+" es +"+Math.Sin(a));
+
+    return a+b;
 }
 
-void coseno(float a)
+double resta(float a, float b)
 {
-    Console.WriteLine("\nEl coseno de "+a+" es +"+Math.Cos(a));
+    return a-b;
 }
 
-void entera(float a)
+double multiplica(float a, float b)
 {
-    Console.WriteLine("\nLa parte entera de "+a+" es +"+Math.Truncate(a));
+    return a*b;
 }
 
-void max(float a, float b)
+double divide(float a, float b)
 {
-    Console.WriteLine("\nEl maximo entre "+a+" y "+b+" es "+Math.Max(a,b));
+    return a/b;
 }
 
-void min(float a, float b)
+double vabs(float a)
 {
-    Console.WriteLine("\nEl minimo entre "+a+" y "+b+" es "+Math.Min(a,b));
+    return Math.Abs(a);
+}
+
+double cuadrado(float a)
+{
+    return a*a;
+}
+
+double raiz(float a)
+{
+    return Math.Sqrt(a);
+}
+
+double seno(float a)
+{
+    return Math.Sin(a);
+}
+
+double coseno(float a)
+{
+    return Math.Cos(a);
+}
+
+double entera(float a)
+{
+    return Math.Truncate(a);
+}
+
+double max(float a, float b)
+{
+    return Math.Max(a,b);
+}
+
+double min(float a, float b)
+{
+    return Math.Min(a,b);
 }
 
